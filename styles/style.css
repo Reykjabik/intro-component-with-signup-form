@@ -1,0 +1,289 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+/*
+=========
+Variables
+=========
+*/
+
+:root {
+  --primary-red: hsl(0, 100%, 74%);
+  --primary-green: hsl(154, 59%, 51%);
+  --darker-green: hsl(154, 57%, 42%);
+
+  --accent-blue: hsl(248, 32%, 49%);
+  --darker-acc-blue: hsl(248, 33%, 39%);
+
+  --neutral-dk-blue: hsl(249, 10%, 26%);
+  --neutral-gr-blue: hsl(246, 25%, 77%);
+  --neutral-gr: #d8d8d8;
+
+  --ff-primary: "Poppins", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  font-size: 16px;
+  font-family: var(--ff-primary);
+  flex-direction: column;
+}
+
+/*
+===============
+Utility classes
+===============
+*/
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.white-text {
+  color: #fff;
+}
+
+.round-border {
+  border-radius: 0.5rem;
+}
+
+.box-shadow {
+  box-shadow: 0 8px rgba(0, 0, 0, 0.2);
+}
+
+/*
+==============
+Custom classes
+==============
+*/
+
+.container {
+  width: 23.4375rem;
+  background-image: url(../images/bg-intro-mobile.png);
+  background-color: var(--primary-red);
+  padding: 5.5rem 1.4375rem 4.25rem;
+}
+
+.main-info h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.main-info p {
+  margin-block: 0.7rem 3.8125rem;
+  line-height: 1.65;
+}
+
+.main-action button {
+  background-color: var(--accent-blue);
+  border: 0;
+  margin-bottom: 1.575rem;
+  padding: 1.4rem 5rem;
+  font-family: var(--ff-primary);
+  font-size: 0.9125rem;
+  position: relative;
+  transition: transform 0.5s ease-in;
+}
+
+.main-action button span {
+  font-weight: bold;
+}
+
+.main-action button,
+.form-container input[type="submit"] {
+  cursor: pointer;
+}
+
+.main-action button::after,
+.form-container input[type="submit"]::after {
+  content: "";
+  position: absolute;
+  transition: all 0.5s;
+}
+
+.main-action button:hover {
+  background-color: var(--darker-acc-blue);
+}
+
+.main-action button:active {
+  top: 2px;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+.form-container {
+  background-color: #fff;
+  padding: 1.5rem;
+}
+
+.input-container {
+  position: relative;
+}
+
+.input-container input {
+  width: 100%;
+  font-family: var(--ff-primary);
+  border: 1px solid var(--neutral-gr);
+  margin-bottom: 1rem;
+  padding: 1rem 1.125rem;
+  transition: border 0.2s ease-in-out;
+}
+
+.error-img {
+  position: absolute;
+  display: block;
+  top: 0.9rem;
+  right: 1.5rem;
+  visibility: hidden;
+}
+
+.error-message {
+  position: absolute;
+  display: block;
+  right: 0;
+  bottom: 0;
+  color: var(--primary-red);
+  font-size: 0.6rem;
+  font-weight: 500;
+  font-style: italic;
+  visibility: hidden;
+}
+
+.input-container.success input {
+  border-color: var(--primary-green);
+}
+
+.input-container.fail input {
+  border-color: var(--primary-red);
+}
+
+.input-container.fail .error-img,
+.input-container.fail .error-message {
+  visibility: visible;
+}
+
+input::placeholder {
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* All inputs except for the button */
+
+input:not([type="submit"]):hover {
+  border-color: var(--neutral-dk-blue);
+}
+
+input:not([type="submit"]):focus {
+  outline: none;
+  border: 1px solid var(--neutral-dk-blue);
+}
+
+input:not([type="submit"]):focus::placeholder {
+  opacity: 0;
+}
+
+input:not([type="submit"]):focus:invalid {
+  border: 1px solid var(--primary-red);
+}
+
+input[type="submit"] {
+  background-color: var(--primary-green);
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.1rem;
+  position: relative;
+  box-shadow: inset 0px -4px 0px 0px rgb(0 0 0 / 10%);
+}
+
+input[type="submit"]:hover {
+  background-color: var(--darker-green);
+}
+
+input[type="submit"]:active {
+  top: 2px;
+  box-shadow: inset 0px -6px 0px 0px rgb(0 0 0 / 10%);
+}
+
+.footer-note {
+  font-size: 0.6825rem;
+  color: var(--neutral-gr-blue);
+  font-weight: 500;
+  padding-inline: 1rem;
+}
+
+.footer-note #tas {
+  color: var(--primary-red);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/*
+=============
+Media Queries
+
+Min-width: 320px (smaller phone viewpoints)
+Min-width: 480px (small devices and most phones)
+Min-width: 768px (most tablets)
+Min-width: 992px (smaller desktop viewpoints)
+Min-width: 1200px (large devices and wide screens)
+
+=============
+*/
+
+@media screen and (min-width: 1000px) {
+  html {
+    height: 100vh;
+  }
+
+  body {
+    height: 100vh;
+  }
+
+  .container {
+    width: min(100vw, 90rem);
+    display: flex;
+    flex-direction: row;
+    background-image: url(./../images/bg-intro-desktop.png);
+    background-size: contain;
+  }
+
+  .main-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-basis: 100%;
+    padding-inline: min(9rem, 8%);
+    padding-top: 3rem;
+    text-align: left;
+  }
+
+  .main-info h1 {
+    font-size: 2.75rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .main-action {
+    flex-basis: 100%;
+    max-width: 33.75rem;
+  }
+
+  .main-action button {
+    width: 100%;
+    height: 3.6875rem;
+    padding-block: 1rem;
+  }
+}
